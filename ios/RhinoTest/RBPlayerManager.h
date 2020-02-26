@@ -1,5 +1,5 @@
 //
-//  RbPlayerManager.h
+//  RBPlayerManager.h
 //  RhinoTest
 //
 //  Created by Bastian Suarez on 2/24/20.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTViewManager.h>
 
-@interface RbPlayerManager : RCTViewManager
+@interface RBPlayerManager : RCTViewManager
 
 @end

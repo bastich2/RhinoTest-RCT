@@ -31,7 +31,7 @@ PODS:
   - Mixpanel (3.6.0)
   - NHNetworkTime (1.7):
     - CocoaAsyncSocket (~> 7.5.0)
-  - RBSDKPlayer (1.0.0):
+  - RBSDKPlayer (1.0.1):
     - AWSS3 (~> 2.4.0)
     - GoogleAds-IMA-iOS-SDK (~> 3.7)
     - MBCircularProgressBar (~> 0.3)
@@ -244,7 +244,7 @@ PODS:
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
-  - XCDYouTubeKit (2.11.0)
+  - XCDYouTubeKit (2.12.0)
   - Yoga (1.14.0)
   - YoutubePlayer-in-WKWebView (0.3.0)
 
@@ -255,7 +255,7 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - RBSDKPlayer (~> 1.0)
+  - RBSDKPlayer (~> 1.0.1)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -374,7 +374,7 @@ SPEC CHECKSUMS:
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   Mixpanel: 446b6e7713aa34a9a3516ff7648d56551384fc94
   NHNetworkTime: b140ee21770aed41e7b8fd43647bce6349ad10f2
-  RBSDKPlayer: 0226f461b2e8171375ae03ec3954e5b8ba586096
+  RBSDKPlayer: 46ecce65e86b949d9d9973bad8ce3a23559aed6c
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
@@ -397,10 +397,10 @@ SPEC CHECKSUMS:
   SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
-  XCDYouTubeKit: 41a4d54785fc4622cc711f92af12bc559e27cab5
+  XCDYouTubeKit: cdad9e696f991aac2739c5b25586c81f1301ba30
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
   YoutubePlayer-in-WKWebView: 17a33b2fa619d357c9ddd763942ce556660facae
 
-PODFILE CHECKSUM: b447df4c755af2047a90c49d00581dc23d5e73a6
+PODFILE CHECKSUM: d511e527fc767edf4606e624e4e35e933dc4a676
 
 COCOAPODS: 1.8.4
