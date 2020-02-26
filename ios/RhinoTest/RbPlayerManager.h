@@ -1,5 +1,5 @@
 //
-//  RhinobirdPlayer.h
+//  RbPlayerManager.h
 //  RhinoTest
 //
 //  Created by Bastian Suarez on 2/24/20.
@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <React/RCTBridgeModule.h>
+#import <React/RCTViewManager.h>
 
-@interface RhinobirdPlayer : NSObject <RCTBridgeModule>
+@interface RbPlayerManager : RCTViewManager
 
 @end
