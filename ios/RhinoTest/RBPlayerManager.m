@@ -64,8 +64,6 @@ RCT_CUSTOM_VIEW_PROPERTY(setCollection, NSString, UIView) {
 - (void)attachPlayerController:(RBSDKRhinobirdPlayerViewController *)playerController {
   playerController.view.frame = self.containerView.bounds;
   [self.containerView addSubview:playerController.view];
-
-  [[RBEventEmitterManager sharedInstance] addSupportedEventName:@"onLoadDidSucceed"];
 }
 
 # pragma mark - Needed UIView
@@ -78,7 +76,9 @@ RCT_CUSTOM_VIEW_PROPERTY(setCollection, NSString, UIView) {
 # pragma mark - RBSDKPlayerViewControllerDelegate
 
 - (void)playerControllerLoadDidSucceed:(BOOL)succeed withError:(nullable NSError *)error {
-  succeed ? [[RBEventEmitterManager sharedInstance] sendEventWithName:@"onLoadDidSucceed" body:@{}] : nil;
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"emitEvent"
+                                                      object:nil
+                                                    userInfo:@{@"eventName": @"onLoadDidSucceed"}];
 }
 
 - (void)playerControllerIsReadyToPlay {
@@ -86,7 +86,15 @@ RCT_CUSTOM_VIEW_PROPERTY(setCollection, NSString, UIView) {
 }
 
 - (void)playerControllerDidSwitchDirection:(RBSDKPlayerContentDirection)contentDirection media:(RBSDKPlayerMediaInfo *)media {
-
+[[NSNotificationCenter defaultCenter] postNotificationName:@"emitEvent"
+                                                      object:nil
+                                                    userInfo:@{@"eventName": @"onDidSwitchDirection",
+                                                               @"info": @{
+                                                                   @"stream": media.streamId,
+                                                                   @"moment": media.reelId,
+                                                                   @"caption": media.caption
+                                                               }
+                                                    }];
 }
 
 - (void)playerControllerDidChangePlayingStatus:(BOOL)isPlaying {

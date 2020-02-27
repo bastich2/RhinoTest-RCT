@@ -7,19 +7,8 @@
 //
 
 #import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeModule.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface RBEventEmitterManager : RCTEventEmitter
-
-# pragma mark - Properties
-
-
-# pragma mark - Public methods
-
-+ (instancetype)sharedInstance;
-- (void)addSupportedEventName:(NSString *)eventName;
+@interface RBEventEmitterManager : RCTEventEmitter <RCTBridgeModule>
 
 @end
-
-NS_ASSUME_NONNULL_END

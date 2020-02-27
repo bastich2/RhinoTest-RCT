@@ -8,9 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "RBEventEmitterManager.h"
-#import <React/RCTBridgeModule.h>
 
-@interface RBEventEmitterManager () <RCTBridgeModule>
+@interface RBEventEmitterManager ()
 
 @property (strong, nonatomic) NSMutableArray<NSString *> *events;
 
@@ -20,37 +19,38 @@
 
 RCT_EXPORT_MODULE(RBEventEmitter);
 
-# pragma mark - Shared Instance
-
-+ (instancetype)sharedInstance {
-  static dispatch_once_t once;
-  static id sharedInstance;
-  dispatch_once(&once, ^{
-    sharedInstance = [[self alloc] init];
-    
-  });
-  return sharedInstance;
+// Will be called when this module's first listener is added.
+-(void)startObserving {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(emitEvent:)
+                                               name:@"emitEvent"
+                                             object:nil];
 }
 
-- (instancetype)init {
-  if (self = [super init]) {
-    self.events = [NSMutableArray new];
-  }
-  return self;
+// Will be called when this module's last listener is removed, or on dealloc.
+-(void)stopObserving {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 # pragma mark - Public
 
-- (void)addSupportedEventName:(NSString *)eventName {
-  if (![self.events containsObject:eventName]) {
-    [self.events addObject:eventName];
+- (void)emitEvent:(NSNotification *)notification {
+  if (notification.userInfo[@"eventName"]) {
+    NSString *eventName = notification.userInfo[@"eventName"];
+    NSDictionary *info = @{};
+
+    if (notification.userInfo[@"info"]) {
+      info = notification.userInfo[@"info"];
+    }
+
+    [self sendEventWithName:eventName body:info];
   }
 }
 
 # pragma mark - Private
 
 - (NSArray<NSString *> *)supportedEvents {
-  return self.events ?: @[];
+  return @[@"onLoadDidSucceed", @"onDidSwitchDirection"];
 }
 
 @end
