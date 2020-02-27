@@ -9,11 +9,11 @@
 #import "RBPlayerManager.h"
 //#import <React/RCTLog.h>
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
 #import <RBSDKPlayer/RBSDKPlayer.h>
 #import <React/RCTBridgeModule.h>
+#import "RBEventEmitterManager.h"
 
-@interface RBPlayerManager () <RCTBridgeModule>
+@interface RBPlayerManager () <RCTBridgeModule, RBSDKPlayerViewControllerDelegate>
 
 //@property (strong, nonatomic) RBSDKPlayerViewController *playerController;
 @property (strong, nonatomic) UIView *containerView;
@@ -36,8 +36,7 @@ RCT_CUSTOM_VIEW_PROPERTY(setReel, NSString, UIView) {
                                                                                options:options
                                                                               delegate:self];
 
-    self.playerController.view.frame = self.containerView.bounds;
-    [self.containerView addSubview:self.playerController.view];
+    [self attachPlayerController:self.playerController];
   }
 }
 
@@ -58,14 +57,60 @@ RCT_CUSTOM_VIEW_PROPERTY(setCollection, NSString, UIView) {
                                                                                      options:options
                                                                                     delegate:self];
 
-    self.playerController.view.frame = self.containerView.bounds;
-    [self.containerView addSubview:self.playerController.view];
+    [self attachPlayerController:self.playerController];
   }
 }
+
+- (void)attachPlayerController:(RBSDKRhinobirdPlayerViewController *)playerController {
+  playerController.view.frame = self.containerView.bounds;
+  [self.containerView addSubview:playerController.view];
+
+  [[RBEventEmitterManager sharedInstance] addSupportedEventName:@"onLoadDidSucceed"];
+}
+
+# pragma mark - Needed UIView
 
 - (UIView *)view {
   self.containerView = [UIView new];
   return self.containerView;
+}
+
+# pragma mark - RBSDKPlayerViewControllerDelegate
+
+- (void)playerControllerLoadDidSucceed:(BOOL)succeed withError:(nullable NSError *)error {
+  succeed ? [[RBEventEmitterManager sharedInstance] sendEventWithName:@"onLoadDidSucceed" body:@{}] : nil;
+}
+
+- (void)playerControllerIsReadyToPlay {
+
+}
+
+- (void)playerControllerDidSwitchDirection:(RBSDKPlayerContentDirection)contentDirection media:(RBSDKPlayerMediaInfo *)media {
+
+}
+
+- (void)playerControllerDidChangePlayingStatus:(BOOL)isPlaying {
+
+}
+
+- (void)playerControllerCurrentMedia:(RBSDKPlayerMediaInfo *)media watchedTime:(float)watchedTime {
+
+}
+
+- (void)playerControllerDidChangeFullscreenStatus {
+
+}
+
+- (void)playerControllerWillChangeFullscreenStatus {
+
+}
+
+- (void)playerControllerWillReachEnd:(RBSDKPlayerContentDirection)contentDirection completionHandler:(void(^)(void))completionHandler {
+
+}
+
+- (void)playerControllerShowingControls:(BOOL)showingControls {
+
 }
 
 @end

@@ -17,6 +17,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* RhinoTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RhinoTestTests.m */; };
+		3CBB69AA24083D9B00C1DCB0 /* RBEventEmitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB69A924083D9B00C1DCB0 /* RBEventEmitterManager.m */; };
 		856310FA24043D2E00AC48B9 /* RBPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 856310F924043D2E00AC48B9 /* RBPlayerManager.m */; };
 		856310FD24046A1F00AC48B9 /* DummyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856310FC24046A1E00AC48B9 /* DummyFile.swift */; };
 		856311002406E73600AC48B9 /* RBCredentialsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 856310FF2406E73600AC48B9 /* RBCredentialsManager.m */; };
@@ -61,6 +62,8 @@
 		27D36E8F25EA690855AF0EE3 /* Pods_RhinoTest_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RhinoTest_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* RhinoTest-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RhinoTest-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* RhinoTest-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RhinoTest-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBB69A824083D9B00C1DCB0 /* RBEventEmitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBEventEmitterManager.h; path = RhinoTest/RBEventEmitterManager.h; sourceTree = "<group>"; };
+		3CBB69A924083D9B00C1DCB0 /* RBEventEmitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBEventEmitterManager.m; path = RhinoTest/RBEventEmitterManager.m; sourceTree = "<group>"; };
 		5643B7F4C53A38A61F486F64 /* Pods-RhinoTest-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhinoTest-tvOS.release.xcconfig"; path = "Target Support Files/Pods-RhinoTest-tvOS/Pods-RhinoTest-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		76899164CD0F05250D0B9B29 /* Pods-RhinoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RhinoTest.release.xcconfig"; path = "Target Support Files/Pods-RhinoTest/Pods-RhinoTest.release.xcconfig"; sourceTree = "<group>"; };
 		856310F824043D2E00AC48B9 /* RBPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RBPlayerManager.h; path = RhinoTest/RBPlayerManager.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				856310FF2406E73600AC48B9 /* RBCredentialsManager.m */,
 				856310F824043D2E00AC48B9 /* RBPlayerManager.h */,
 				856310F924043D2E00AC48B9 /* RBPlayerManager.m */,
+				3CBB69A824083D9B00C1DCB0 /* RBEventEmitterManager.h */,
+				3CBB69A924083D9B00C1DCB0 /* RBEventEmitterManager.m */,
 				856310FC24046A1E00AC48B9 /* DummyFile.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -662,6 +667,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				856310FD24046A1F00AC48B9 /* DummyFile.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				3CBB69AA24083D9B00C1DCB0 /* RBEventEmitterManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
